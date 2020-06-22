@@ -1,4 +1,4 @@
-FROM docker:18.09.7
+FROM node:12-alpine
 
 LABEL maintainer="realanmup@gmail.com"
 
@@ -14,7 +14,7 @@ RUN echo "**** install Python ****" && \
     pip3 install --no-cache --upgrade pip setuptools wheel && \
     if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi
 
-RUN apk add curl nodejs npm unzip jq
+RUN apk add curl unzip jq
 
 RUN pip3 install --upgrade awscli
 
